@@ -8,7 +8,7 @@
 	}
 	if (isset($_POST['button']))
 	{
-		mysqli_query($db, "UPDATE user SET username='$_POST[username]', password='$_POST[password]' WHERE id_user='$_POST[id_user]'");
+		mysqli_query($db, "UPDATE user SET username = '$_POST[username]', password = '$_POST[password]'  WHERE id_user = '$_POST[id_user]'");
 		header("location:user.php");
 	}
 ?>
@@ -40,10 +40,10 @@
                     <a style="text-decoration:none" href="admin.php"><span class="las la-igloo"></span><span>Dashboard</span></a>
                 </li>
                 <li>
-                    <a style="text-decoration:none" href="alternatif.php"><span class="las la-clipboard-list"></span><span>Alternatif</span></a>
+                    <a style="text-decoration:none" href="alternatif.php" class="active"><span class="las la-clipboard-list"></span><span>Alternatif</span></a>
                 </li>
                 <li>
-                    <a style="text-decoration:none" href="kriteria.php" class="active"><span class="las la-clipboard-list"></span><span>Kriteria</span></a>
+                    <a style="text-decoration:none" href="kriteria.php"><span class="las la-clipboard-list"></span><span>Kriteria</span></a>
                 </li>
                 <li>
                     <a style="text-decoration:none" href="alternatif-kriteria.php"><span class="las la-clipboard-list"></span><span>Alternatif Kriteria</span></a>
@@ -82,25 +82,29 @@
                 </li>
             </ul>
         </header>
-        <main>
+            <main>
                     <div class="container-fluid">
                         <h1 class="mt-2 mb-5 text-center">Ubah Pengguna</h1>
-                            <form id="form1" name="form1" method="post" action="">
-                              <table class="table table-bordered col-4 mx-auto">
-                                <tr>
-                                  <th scope="row">Username</th>
-                                  <td><input type="text" class="form-control" name="username" id="username" /></td>
-                                </tr>
-                                <tr>
-                                  <th scope="row">Password</th>
-                                  <td><input type="text" class="form-control" name="password" id="password" /></td>
-                                </tr>
-                                <tr>
-                                  <td>&nbsp;</td>
-                                  <td><input type="submit" class="form-control btn btn-primary" name="button" id="button" value="Simpan" /></td>
-                                </tr>
-                              </table>
-                            </form>
+                             <?php
+                                $queryuser = mysqli_query($db, "SELECT * FROM user WHERE id_user = '$_GET[id_user]'");
+                                $datauser = mysqli_fetch_array($queryuser);
+                              ?>
+                                <form id="form1" name="form1" method="post" action="">
+                                  <table class="table table-bordered col-4 mx-auto">
+                                    <tr>
+                                      <th scope="row">Username</th>
+                                      <td><input type="text" class="form-control" name="username" id="username" value="<?php echo $datauser['username']; ?>" /></td>
+                                    </tr>
+                                    <tr>
+                                      <th scope="row">Password</th>
+                                      <td><input type="text" class="form-control" name="password" id="password" value="<?php echo $datauser['password']; ?>" /></td>
+                                    </tr>
+                                    <tr>
+                                      <td>&nbsp;</td>
+                                      <td><input type="submit" class="form-control btn btn-primary" name="button" id="button" value="Ubah" /></td>
+                                    </tr>
+                                  </table>
+                                </form>
                     </div>
                 </main>
         </div>
