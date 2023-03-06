@@ -8,10 +8,13 @@
 	}
     $data_alternatif = mysqli_query($db,"SELECT * FROM alternatif");
     $jumlah_alternatif = mysqli_num_rows($data_alternatif);
+
     $data_kriteria = mysqli_query($db,"SELECT * FROM kriteria");
     $jumlah_kriteria = mysqli_num_rows($data_kriteria);
+
     $data_alternatif_kriteria = mysqli_query($db,"SELECT * FROM alternatif_kriteria");
     $jumlah_alternatif_kriteria = mysqli_num_rows($data_alternatif_kriteria);
+    
     $data_login = mysqli_query($db,"SELECT * FROM user");
     $jumlah_login = mysqli_num_rows($data_login);
 ?>
@@ -111,13 +114,22 @@
                 <div class="card-single">
                     <div>
                         <h1><?php echo $jumlah_alternatif_kriteria; ?></h1>
-                        <span>Alternatif Kriteria</span>
+                        <span>Divisi</span>
                     </div>
                     <div>
                         <span class="las la-clipboard-list"></span>
                     </div>
                 </div>
 
+                <div class="card-single">
+                    <div>
+                        <h1><?php echo $jumlah_alternatif_kriteria; ?></h1>
+                        <span>Alternatif Kriteria</span>
+                    </div>
+                    <div>
+                        <span class="las la-clipboard-list"></span>
+                    </div>
+                </div>
 
                 <div class="card-single">
                     <div>

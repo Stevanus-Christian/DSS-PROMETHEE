@@ -74,7 +74,7 @@
             <ul class="navbar-nav ml-auto ml-md-0">
                  <li class="nav-item dropdown text-uppercase">
                   <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
-                    <img src="./assets/img/icon-user.png" width="40px" height="40px" alt="" class="rounded-circle mr-2 profile-picture" />
+                    <img src="./assets/img/icon-users.png" width="40px" height="40px" alt="" class="rounded-circle mr-2 profile-picture" />
                     Hi, <?php echo $_SESSION['userlogin']; ?>
                   </a>
                   <div class="dropdown-menu">
@@ -100,7 +100,7 @@
                                       <td><input type="text" class="form-control" name="password" id="password" value="<?php echo $datauser['password']; ?>" /></td>
                                     </tr>
                                     <tr>
-                                      <td>&nbsp;</td>
+                                      <td><input type="hidden" class="form-control" name="id_user" id="id_user" value="<?php echo $datauser['id_user']; ?>" /></td>
                                       <td><input type="submit" class="form-control btn btn-primary" name="button" id="button" value="Ubah" /></td>
                                     </tr>
                                   </table>
